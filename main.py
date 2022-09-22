@@ -7,6 +7,8 @@ app = Flask(__name__)
 urls_db = {}
 
 
+
+
 @app.route("/", methods=("GET", "POST"))
 def index():
 
@@ -17,7 +19,7 @@ def index():
             flash("The URL is required!")
             return redirect(url_for("index"))
 
-        id = "".join(random.choices(string.ascii_letters, k=6))
+        id =  "".join(random.choices(string.ascii_letters, k=6))
 
         short_url = request.host_url + id
         urls_db[id] = request.form["url"]
